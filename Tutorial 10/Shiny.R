@@ -1,0 +1,5 @@
+library(shiny)
+runExample()
+runExample("01_hello")
+runExample("02_text")
+runExample("04_mpg")

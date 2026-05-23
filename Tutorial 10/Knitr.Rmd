@@ -1,0 +1,41 @@
+---
+title: "Assignment Six"
+author: "Suprit Saha"
+date: "Sunday, April 05, 2015"
+output: html_document
+---
+
+**Question 1**
+
+Create user defined function/functions 
+User can input any data
+The result will be two datasets :
+
+* One having quantitative variables
+* Other having categorical/character variables
+* Use stat.desc to get descriptive statistics of quantitative variables
+* Use summary to get descriptive statistics of quantitative variables
+
+```{r}
+DataNumeric <- function(dataset)
+{ 
+  dataNum <- dataset[,sapply(dataset, function(x) is.numeric(x) | is.integer(x))]
+  return(dataNum)
+}
+
+DatanonNumeric <- function(dataset)
+{ 
+  datanonNum <- dataset[,sapply(dataset, function(x) is.character(x) | is.factor(x) | is.logical(x))]
+  return(datanonNum)
+}
+```
+
+We have created two user defined functions.Let us see the output by calling the functions
+```{r}
+custdata <- read.table(file = "C:\\Users\\Suprit\\Desktop\\Anaken R\\Tutorial Eight\\CustomerData.txt",header = TRUE,sep = "\t",na.strings = c("",NA))
+
+head(DataNumeric(dataset = custdata))
+head(DatanonNumeric(dataset = custdata))
+
+```
+
